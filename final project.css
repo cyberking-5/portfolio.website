@@ -1,0 +1,245 @@
+@import url("https://fonts.googleapis.com/css?family=Sofia");
+
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --BG-COLOR: #000;
+        --BG-COLOR-FADE: GREY;
+    }
+}
+
+/* || Variables */
+
+:root {
+    /* || Fonts */
+
+    --FS: 2rem;
+    --FSS: italic;
+
+    /* || Colors */
+
+    --COLORS: black;
+    --BG-COLORS: skyblue;
+    --BG-COLOR-FADE: grey;
+    --BG-IMAGE: linear-gradient(to bottom, var(--BG-COLORS)
+    ,var(--BG-COLOR-FADE));
+    --BORDERS-COLOR: #333;
+    --BORDERS: 2px solid var(--COLORS);
+    --HIGH-LIGHT-COLOR: green;
+    --HEADER-COLOR: white;
+
+    --ABOUT-COLOR:blueviolet;
+    --CONTACT-COLOR:blueviolet;
+
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: var(--FS);
+    background-image: var(--BG-IMAGE);
+}
+
+body {
+    background-color: var(--BG-COLORS);
+    font-family:'Times New Roman', Times, serif;
+    min-height: 100vh;
+    max-width: 800px;
+    margin: 0 auto;
+    border-left: var(--BORDERS);
+    box-shadow:0 0 10px var(--BORDERS-COLOR);
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Sofia";
+    letter-spacing: 0.1em;
+}
+
+h2,
+h3 {
+    color: var(--HIGH-LIGHT-COLOR);
+    margin-bottom: 1em;
+}
+
+p {
+    line-height: 1.5;
+    letter-spacing: 2px;
+}
+
+a:any-link {
+    color: var(--BORDERS-COLOR);
+}
+
+a:hover,a:focus-visible {
+    color: violet;
+}
+
+a:active {
+    color: orange;
+}
+
+.header {
+    position: relative;
+    top: 0;
+    z-index: 1;
+}
+
+.header__h1 {
+    text-align: center;
+    background-color: var(--BORDERS-COLOR);
+    color: var(--HEADER-COLOR);
+    margin-bottom: 0.5rem;
+    
+}
+
+.header__nav {
+    background-color: var(--HEADER-COLOR);
+    border-bottom: 10px;
+    font-weight: bolder;
+}
+
+.header__ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer {
+    position: sticky;
+    background-color: var(--BORDERS-COLOR);
+    color: var(--HEADER-COLOR);
+    bottom:0;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* || About */
+
+.about__trivia {
+    margin: 10px;
+}
+
+.about__answer {
+    margin-top: 1em;
+    color: var(--ABOUT-COLOR);
+}
+
+/* || Contact */
+
+.contact__h2 {
+    margin: 0;
+}
+
+.contact__address {
+    color:var(--CONTACT-COLOR);
+}
+
+.contact__label {
+    display: block;
+    font-weight: bold;
+}
+
+.contact__input {
+    padding: 0.5em;
+    border-radius: 50px;
+    border-width: var(--BORDERS);
+    width: 80%;
+}
+
+.contact__textarea {
+    padding: 0.5em;
+    border-radius: 20px;
+    font-weight: bold;
+    border: var(--BORDERS);
+    width: 60%;
+    height: 30%;
+}
+
+.contact__button {
+    padding: 0.5em;
+    border-radius: 30px;
+    height: 20%;
+    background-color: black;
+    color: blueviolet;
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 576px) {
+    .header__h1::before {
+        content: '👟';
+    }
+
+    .header__h1::after {
+        content: '👟';
+    }
+    
+}
+
+/* || Animations */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-24px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+}
+
+.header__h1 {
+    animation: slideDown 0.8s ease-out both;
+}
+
+.header__nav a:any-link {
+    transition: color 220ms ease, transform 220ms ease;
+}
+
+.header__nav a:hover,
+.header__nav a:focus-visible {
+    color: violet;
+    transform: translateY(-2px);
+}
+
+p,
+.about__trivia,
+.contact__h2 {
+    animation: fadeIn 0.8s ease-out both;
+}
+
+.contact__button {
+    animation: pulse 5s ease-in-out infinite;
+    transition: background-color 260ms ease, color 260ms ease;
+}
+
+.contact__button:hover,
+.contact__button:focus-visible {
+    background-color: violet;
+    color: white;
+}
+
+
+
